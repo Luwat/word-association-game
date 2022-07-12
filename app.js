@@ -37,13 +37,37 @@ function populateQuestions() {
         const questionBox = document.createElement('div')
         questionBox.classList.add('question-box')
         
+        const logoDisplay = document.createElement('h1')
+        logoDisplay.textContent = "$&"
+        questionBox.append(logoDisplay)
+
         question.quiz.forEach(tip => {
             const tipText = document.createElement('p')
             tipText.textContent = tip
             questionBox.append(tipText)
         })
+        
+        const questionButtons = document.createElement('div')
+        questionButtons.classList.add('question-buttons')
+        questionBox.append(questionButtons)
+
+        question.options.forEach(option => {
+
+            const questionButton = document.createElement('button')
+            questionButton.classList.add('question-button')
+            questionButton.textContent = option
+
+            questionButton.addEventListener('click', checkAnswer)
+
+            questionButtons.append(questionButton)
+        })
+
         questionDisplay.append(questionBox)
     })
 }
 
 populateQuestions()
+
+function checkAnswer() {
+    console.log('checked')
+}
