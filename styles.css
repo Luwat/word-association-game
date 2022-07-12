@@ -1,0 +1,21 @@
+.app {
+    font-family: "Trebuchet MS", "Lucida Grande", Verdana, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+
+.questions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.question-box {
+    background-color: rgb(21,  21, 21);
+    margin: 15px;
+    color: rgb(230, 230, 230);
+    border-radius: 10px;
+    padding: 0 40px 10px 40px;
+} 
