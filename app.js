@@ -51,13 +51,13 @@ function populateQuestions() {
         questionButtons.classList.add('question-buttons')
         questionBox.append(questionButtons)
 
-        question.options.forEach(option => {
+        question.options.forEach((option, optionIndex) => {
 
             const questionButton = document.createElement('button')
             questionButton.classList.add('question-button')
             questionButton.textContent = option
 
-            questionButton.addEventListener('click', checkAnswer)
+            questionButton.addEventListener('click', () => checkAnswer(option, optionIndex + 1, question.correct))
 
             questionButtons.append(questionButton)
         })
@@ -68,6 +68,15 @@ function populateQuestions() {
 
 populateQuestions()
 
-function checkAnswer() {
-    console.log('checked')
+function checkAnswer(option, optionIndex, correctAnswer) {
+    console.log('option', option)
+    console.log('optionIndex', optionIndex)
+
+    if (optionIndex === correctAnswer) {
+        score++
+        scoreDisplay.textContent = score
+    } else {
+        score--
+        scoreDisplay.textContent = score
+    }
 }
