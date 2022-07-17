@@ -27,6 +27,7 @@
 
 .question-buttons {
     display: flex;
+    flex-direction: row;
 }
 
 .question-button {
