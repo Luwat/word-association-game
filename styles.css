@@ -44,9 +44,17 @@
     color: rgb(136, 134, 134);
 }
 
-answer-display {
-    margin: 50px;
+.answer-display {
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.answer-display.correct{
+    color: rgb(211, 211, 117);
+}
+
+.answer-display.wrong{
+    color: rgb(211, 134, 117);
 }

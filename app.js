@@ -58,7 +58,7 @@ function populateQuestions() {
             questionButton.classList.add('question-button')
             questionButton.textContent = option
 
-            questionButton.addEventListener('click', () => checkAnswer(questionBox, questionButton, answerDisplay, option, optionIndex + 1, question.correct))
+            questionButton.addEventListener('click', () => checkAnswer(questionBox, questionButton, option, optionIndex + 1, question.correct))
 
             questionButtons.append(questionButton)
         })
@@ -80,18 +80,21 @@ function checkAnswer(questionBox, questionButton, option, optionIndex, correctAn
     if (optionIndex === correctAnswer) {
         score++
         scoreDisplay.textContent = score
-        addResult(questionBox, 'Correct')
+        addResult(questionBox, 'Correct', 'correct')
     } else {
         score--
         scoreDisplay.textContent = score
-        addResult(questionBox, 'Wrong')
+        addResult(questionBox, 'Wrong', 'wrong')
     }
 
     clicked.push(option)
     questionButton.disabled = clicked.includes(option) 
 }
 
-function addResult(questionBox, answer) {
+function addResult(questionBox, answer, className) {
     const answerDisplay = questionBox.querySelector('.answer-display')
+    answerDisplay.classList.remove('wrong')
+    answerDisplay.classList.remove('correct')
+    answerDisplay.classList.add(className)
     answerDisplay.textContent = answer
 }
